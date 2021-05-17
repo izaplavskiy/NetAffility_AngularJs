@@ -1,0 +1,124 @@
+@import "mixins";
+@import "variables";
+
+.submit-dialog {
+    min-width: 794px;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.dialog-heading {
+    border-bottom: 1px solid #0000001F;
+    padding: 21px 23px 18px;
+
+    h3 {
+        margin: 0;
+    }
+
+    .mdi-close {
+        font-size: 26px;
+        cursor: pointer;
+
+        &:hover:before {
+            color: $blue;
+        }
+    }
+}
+
+.dialog-content {
+    padding: 33px 45px 35px 30px;
+}
+
+md-input-container {
+    padding: 0;
+    margin: 0 0 22px;
+    
+    &.md-input-has-value label:not(.md-no-float) {
+        display: none;
+    }
+
+    &.md-input-focused {
+        label:not(.md-no-float) {
+            transform: translate3d(0,-7px,0) scale(.75);
+        }
+
+        .md-input,
+        md-select {
+            border-width: 1px;
+        }
+    }
+
+    &.md-input-focused:not([md-no-float]) {
+        .md-placeholder {
+            display: none;
+        }
+
+        md-select:not([placeholder]) .md-select-placeholder span:first-child {
+            transform: translate(16px, -42px) scale(.75);
+        }
+    }
+
+    &.textarea-holder {
+        label:not(.md-container-ignore) {
+            bottom: 93%;
+        }
+    }
+
+    label:not(.md-container-ignore) {
+        bottom: 80%;
+        left: 16px;
+    }
+
+    .md-input {
+        padding: 0 16px;
+    }
+
+    .md-input,
+    md-select {
+        border-width: 1px;
+        border-color: #0000001F;
+        border-radius: 4px;
+        height: 56px;
+        border-style: solid;
+        padding: 0 16px;
+    }
+
+    md-select {
+        .md-select-value {
+            min-height: 56px;
+            border-bottom-width: 0;
+
+            .md-select-icon {
+                width: 27px;
+                &:after {
+                    font-size: 20px;
+                    color: #000;
+                    top: 0px;
+                    right: 3px;
+                }
+            }
+        }
+    }
+
+    textarea.md-input {
+        min-height: 180px;
+    }
+
+    .md-errors-spacer {
+        display: none;
+    }
+}
+
+.short-input {
+    max-width: 415px;
+}
+
+textarea {
+    @include placeholder {
+        letter-spacing: 0.15px;
+        color: #00000099;
+    }
+
+    min-height: 180px;
+}
+

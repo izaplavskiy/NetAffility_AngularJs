@@ -1,0 +1,32 @@
+@import "variables";
+
+md-tabs.md-primary>md-tabs-wrapper {
+    background-color: transparent;
+    color: $blue;
+
+    md-tabs-canvas {
+
+        md-pagination-wrapper {
+            
+            md-tab-item {
+                min-width: 178px;
+                font-size: 16px;
+
+                &:not([disabled]) {
+                    color: $gray;
+                    text-transform: none;
+                    font-weight: 600;
+    
+                    &.md-active {
+                        color: $blue;
+                    }
+                }
+            }
+            md-ink-bar {
+                color: $blue;
+                background: $blue;
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,132 @@
+<div layout="column" flex>
+  <!-- Container #2 -->
+  <div flex layout="row">
+
+    <!-- Container #3 -->
+    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="sidebar"
+                md-component-id="left">
+      <strong class="logo">
+        <a href="#">
+          <img ng-src="assets/img/logo.png" alt="Net Affinity">
+        </a>
+      </strong>
+      <ul class="navigation" ng-controller="menuCtrl">
+        <li class="menu-item" 
+            ng-repeat="menuitem in menuitems" 
+            ng-class="{active : isSelected(menuitem)}">
+              <a href="#" ng-click="setMaster(menuitem)" class="menu-link">
+                <i class="mdi {{menuitem.icon}}"></i>{{menuitem.content}}
+              </a>
+        </li>
+      </ul>
+    </md-sidenav>
+
+
+    <!-- content -->
+    <md-content flex ng-cloak class="main-content" >
+      <section class="page-top-panel" layout="row" layout-align="space-between center">
+        <h2>Dashboard</h2>
+        <div class="actions" layout="row" layout-align="end center">
+          <div ng-controller="dialogCtrl" ng-cloak >
+            <md-button class="btn button-primary" ng-click="showAdvanced($event)">Submit request</md-button>
+          </div>
+          <button class="mdi mdi-bell-ring button-role"></button>
+          <button class="mdi mdi-login-variant button-role"></button>
+        </div>
+      </section>
+
+      <!-- charts -->
+      <section class="charts-holder" layout="row" layout-align="space-between">
+      <!-- <section class="charts-holder"> -->
+
+        <div class="chart-holder md-whiteframe-4dp">
+          <h3>Bookings</h3>
+          <div class="chart line-chart " id="line-chart"></div>
+        </div>
+        <div class="chart-holder md-whiteframe-4dp">
+          <h3>Categories</h3>
+          <div class="donut-align" layout="row" layout-align="center center" ng-cloak>
+            <div class="chart donut-chart" layout="row" layout-align="center center" id="donut-chart"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- tabs -->
+      <section class="tabs-holder md-whiteframe-4dp">
+        <md-content>
+          <md-tabs class="md-primary" md-dynamic-height>
+            <md-tab label="Recent">
+              <md-content class="md-padding">
+                <div class="md-body-1">
+                  <table class="recent-table" ng-controller="recentTableCtrl">
+                    <tr>
+                      <th>Date</th>
+                      <th>Name</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                    </tr>
+                    <tr ng-repeat="row in rows">
+                      <td>{{row.date}}</td>
+                      <td>{{row.name}}</td>
+                      <td>{{row.amount}}</td>
+                      <td>{{row.status}}</td>
+                    </tr>
+                  </table>
+                </div>
+              </md-content>
+            </md-tab>
+            <md-tab label="Active">
+              <md-content class="md-padding">
+                <div class="md-body-2">
+                  <table class="recent-table" ng-controller="recentTableCtrl">
+                    <tr>
+                      <th>Date</th>
+                      <th>Name</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                    </tr>
+                    <tr ng-repeat="row in rows">
+                      <td>{{row.date}}</td>
+                      <td>{{row.name}}</td>
+                      <td>{{row.amount}}</td>
+                      <td>{{row.status}}</td>
+                    </tr>
+                  </table>
+                </div>
+              </md-content>
+            </md-tab>
+          </md-tabs>
+        </md-content>
+      </section>
+    </md-content>
+  </div>
+</div>
+
+<div style="visibility: hidden">
+  <div class="md-dialog-container" id="myDialog">
+    <md-dialog class="submit-dialog">
+      <div class="dialog-heading" layout="row" layout-align="space-between center">
+        <h3>Submit Request</h3>
+        <button class="mdi mdi-close button-role" ng-click="cancel()"></button>    
+      </div>
+      <div class="dialog-content" layout="column">
+        <md-input-container class="short-input">
+          <label>Name</label>
+          <input>
+        </md-input-container>
+        <md-input-container class="short-input">
+          <label>Category</label>
+          <md-select ng-model="ctrl.userState" class="md-no-underline">
+            <md-option value="business">business</md-option>
+            <md-option value="building">building</md-option>
+            <md-option value="fishing">fishing</md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container class="textarea-holder">
+          <textarea placeholder="Request" class="md-no-underline" md-no-resize></textarea>
+        </md-input-container>
+        <md-button class="btn button-primary" ng-click="hide()">Submit request</md-button>
+      </div>
+    </md-dialog>
+  </div>
+</div>

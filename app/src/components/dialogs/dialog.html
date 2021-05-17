@@ -1,0 +1,28 @@
+<div ng-controller="dialogCtrl">
+    <div class="md-dialog-container" id="myDialog">
+      <md-dialog class="submit-dialog">
+        <div class="dialog-heading" layout="row" layout-align="space-between center">
+          <h3>Submit Request</h3>
+          <button class="mdi mdi-close button-role" ng-click="cancel()"></button>    
+        </div>
+        <div class="dialog-content" layout="column">
+          <md-input-container class="short-input">
+            <label>Name</label>
+            <input>
+          </md-input-container>
+          <md-input-container class="short-input">
+            <label>Category</label>
+            <md-select ng-model="ctrl.userState" class="md-no-underline">
+              <md-option value="business">business</md-option>
+              <md-option value="building">building</md-option>
+              <md-option value="fishing">fishing</md-option>
+            </md-select>
+          </md-input-container>
+          <md-input-container class="textarea-holder">
+            <textarea placeholder="Request" class="md-no-underline" md-no-resize></textarea>
+          </md-input-container>
+          <md-button class="btn button-primary" ng-click="hide()">Submit request</md-button>
+        </div>
+      </md-dialog>
+    </div>
+</div>

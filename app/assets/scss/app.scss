@@ -1,0 +1,294 @@
+@import "variables";
+@import "mixins";
+@import "dialog";
+@import "tabs";
+
+
+[ng-cloak] {
+    display: none;
+}
+  
+html, body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+md-content {
+    color: $gray;
+}
+
+.layout-padding>* {
+    padding: 0;
+}
+
+.md-whiteframe-4dp {
+    border-radius: 4px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h2, h3 {
+    margin: 0 0 0.5em;
+}
+
+h2 {
+    font-size: 23px;
+    font-weight: 600;
+    color: $blue;
+}
+
+h3 {
+    font-size: 18px;
+    color: #000;
+}
+
+.btn {  
+    @include animate(background);
+    
+    border-radius: 4px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    margin: 0;
+
+    &.button-primary {
+        background: $blue;
+        color: #fff;
+        width: 166px;
+
+        &:hover {
+            background: darken($blue, 10%);
+        }
+    }
+}
+
+.ng-enter {
+    transition: 0.7;
+    opacity: 0;
+}
+
+.mdi,
+.mdi:before {
+    @include animate(color);
+}
+
+.mdi {
+    &.button-role {
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: transparent;
+    }
+}
+
+.logo {
+    width: 188px;
+    margin-bottom: 36px;
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+
+.sidebar {
+    padding: 32px 33px;
+    max-width: 256px;
+}
+
+.navigation {
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item {
+    line-height: 1.35;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 26px;
+    transition: .3s;
+
+    &.active,
+    &:hover {
+        color: $blue;
+
+        .mdi:before {
+            color: $blue;
+        }
+    }
+
+    .mdi {
+        font-size: 20px;
+        margin-right: 20px;
+    }
+}
+
+.main-content {
+    padding: 24px 33px 40px 40px;
+    background: #fafafa;
+}
+
+.page-top-panel {
+    margin-bottom: 30px;
+
+    h2 {
+        margin-bottom: 0;
+    }
+
+    .button-primary {
+        margin-right: 37px;
+    }
+
+    .mdi {
+        font-size: 23px;
+        color: $gray;
+
+        &:hover {
+            &:before {
+                color: $blue;
+            }
+        }
+
+        &+.mdi {
+            margin-left: 28px;
+        }
+    }    
+}
+
+.charts-holder {
+    margin: 0 -16px 47px;
+
+    .line-chart {
+        .apexcharts-yaxis,
+        .apexcharts-xaxis {
+            .apexcharts-text {
+                font-size: 8px;
+            }
+        }
+
+        .apexcharts-legend-text {
+            font-size: 6px;
+        }
+
+        .apexcharts-toolbar {
+            display: none;
+        }
+    }
+
+    .donut-chart {
+        width: 80%;
+        margin: 0 auto;
+
+        .apexcharts-legend-series {
+            margin-bottom: 50px;
+        }
+    }
+
+    .donut-align {
+        height: calc(100% - 30px);
+    }
+
+    @media (min-width:1440px) {
+        .donut-chart {
+            width: 60%;
+        }
+    }
+
+    h3 {
+        padding: 0 20px;
+        margin-bottom: 0;
+    }
+
+    .chart-holder {
+        padding: 21px 10px 0;
+        display: inline-block;
+        width: calc(50% - 32px);
+        margin: 0 16px;
+    }
+}
+
+.recent-table {
+    width: 100%;
+    text-align: left;
+    color: #000;
+    font-size: 16px;
+    table-layout: auto;
+
+    th {
+        color: $gray-light;
+        font-size: 12px;
+        padding: 12px 12px 5px;
+    }
+
+    td {
+        padding: 10px 50px 10px 12px;
+
+        &:nth-child(1) {
+            width: 10%;
+        }
+
+        &:nth-child(2) {
+            width: 70%;
+        }
+
+        &:nth-child(3) {
+            width: 10%;
+        }
+
+        &:nth-child(4) {
+            width: 10%;
+        }
+    }
+}
+
+@media (min-width:768px) {
+    .md-toolbar-tools {
+        display: none;
+    }
+}
+
+
+
+
+.view-container {
+    position: relative;
+  }
+  
+  .view-frame {
+    margin-top: 20px;
+  }
+  
+  .view-frame.ng-enter,
+  .view-frame.ng-leave {
+    background: white;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  
+  .view-frame.ng-enter {
+    animation: 1s fade-in;
+    z-index: 100;
+  }
+  
+  .view-frame.ng-leave {
+    animation: 1s fade-out;
+    z-index: 99;
+  }
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  @keyframes fade-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+
