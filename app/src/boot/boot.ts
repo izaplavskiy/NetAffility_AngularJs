@@ -132,7 +132,6 @@ app.controller("recentTableCtrl", function ($scope) {
   ];
 })
 
-// Register all of our components
 .component(AppComponent.componentName, AppComponent.componentConfig)
 
 
